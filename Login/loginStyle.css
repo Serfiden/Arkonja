@@ -1,0 +1,31 @@
+#container {
+	width:100%;
+	text-align:center;
+	font-family: Verdana, sans-serif;
+}
+
+#loginForm {
+	width:200px;
+	height:270px;
+	display: inline-block;
+	box-shadow: 0 4px 20px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+	border-radius:10px;
+	border: 3px solid #668cff;
+	padding:10px;
+}
+
+a:visited {
+	color:black;
+}
+
+#loginBtn {
+	outline:0;
+	border:none;
+	background-color: #668cff;
+	width:60px;
+	height:25px;
+}
+
+#loginBtn:hover {
+	background-color: #003566;
+}
