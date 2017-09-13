@@ -1,3 +1,12 @@
+<!-- 
+	- update the style for posts made by users
+	- handle the post overflow (the only non-fixed element should be the actual feed itself)
+	- user settings panel (initial: change password, choose profil pic, perhaps birthday for a possible event panel?)
+	
+ -->
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,11 +22,11 @@
 	
 	<div id = "newsFeedContainer">
 	
-		<div id = "newPostContainer">
+		<div class = "overlap" id = "newPostContainer">
 
 			<div id = "inputContainer">
 			
-			<input type="text" placeholder="Write your thoughts here..." id = "inputBox">
+			<span><input type="text" placeholder="Write your thoughts here..." id = "inputBox" maxlength = "300"></span> 
 
 			</div>
 		
@@ -29,8 +38,8 @@
 			<button id = "postBtn">Post</button>
 		
 		</div>
-		<div class = "posts" id ="placePost"></div>
-		
+		<div class = "overlap" id ="placePost"></div>
+				
 	</div>
 </div>
 
