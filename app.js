@@ -124,6 +124,10 @@ app.get('/imgIconPost.png', function(req, res){
 	res.sendFile(__dirname + '/Imgs/imgIconPost.png');
 });
 
+app.get('/placeholder.png', function(req, res){
+	res.sendFile(__dirname + '/Imgs/placeholder.png');
+});
+
 app.get('/sessionbro', function(req, res){
 	res.send(sessionUser);
 });

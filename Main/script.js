@@ -33,16 +33,6 @@ function separateChars(arg){
 
 function refreshFeed(reqName, feed){
 	$.get(reqName, function(data){
-
-
-		// NOT TESTED IDEA
-		/*  
-			- should request an object that contains both the data and the id of the last
-			post that was added to the newsfeed 
-			- refreshFeed should take a number as a parameter, and only add posts with an id
-			that's higher than the parameter
-			- first function call should take 0 as a parameter
-		*/
 		var str = JSON.stringify(data);
 		var posts = str.split("\"");
 		console.log(posts);
@@ -51,18 +41,16 @@ function refreshFeed(reqName, feed){
 			if(i == 0)
 			$(feed).add("<div class = 'posts'><p>" + posts[5] + " wrote: " + decodeText(separateChars(posts[18])) + 
 				" at " + posts[9] + "</p></div>").appendTo(feed);
-
 			else
 			$(feed).add("<div class = 'posts'><p>" + posts[18 * i + 5] + " wrote: " + decodeText(separateChars(posts[i * 18 + 18])) + 
 				" at " + posts[i * 18 + 9] + "</p></div>").appendTo(feed); 
 		}
 	});
-
 }
 
 function countDivs(identifier)
 {
-	var i;
+	var i = 0;
 	$(identifier).each(function(index){
 		i ++;
 	});
@@ -99,14 +87,13 @@ $(document).ready(function(){
 			postData.message = postText;
 
 			$.post('/newPost', postData, function(data){
-				console.log("sal");
+
 			}, 'json');
 
 			var i = countDivs('.posts');
 
-
 			if(i != 0)	
-				$('#placePost + .posts').before($('<div class= "posts" ><p>' + user + ' posted: ' + postText + ' at ' + date + '</p></div>'));
+				$('#placePost + .posts').before($('<div class= "posts" ><p>' + user + ' wrote: ' + postText + ' at ' + date + '</p></div>'));
 			else 
 				$('#newsFeedContainer').add("<div class = 'posts'><p>" + user + " wrote: " + postText + 
 				" at " + date + "</p></div>").appendTo('#newsFeedContainer'); 
