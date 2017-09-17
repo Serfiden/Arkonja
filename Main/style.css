@@ -1,6 +1,3 @@
-body {
-	background-color: #ccd6ff;
-}
 
 #mainContainer {
 	width:100%;
@@ -10,14 +7,14 @@ body {
 }
 
 #newsFeedContainer {
-	width:40%;
+	width:42%;
 	background-color: #ccd6ff;
 	padding-top:1%;
 	padding-left:.5%;
 	padding-right:.5%;
 	position:absolute;
 	left:50%;
-	margin-left:-20%;
+	margin-left:-21%;
 	display:flex;
 	flex-direction:column;
 	align-items:center;
@@ -26,10 +23,14 @@ body {
 
 .posts {
 	/*display:block;*/
+	position:relative;
 	width:95%;
-	height:130px;
+	height:180px;
 	background-color: #e6ebff;
 	margin-top:20px;
+	-webkit-box-shadow: 0px 0px 20px 3px rgba(25,106,138,0.65);
+	-moz-box-shadow: 0px 0px 20px 3px rgba(25,106,138,0.65);
+	box-shadow: 0px 0px 20px 3px rgba(25,106,138,0.65);
 	margin-bottom:10px;
 }
 
@@ -37,18 +38,21 @@ body {
 	background-color: #ccd6ff;
 }
 
-.overlap {
+#newPostContainer {
+	position:relative;
+	width:95%;
+	height:180px;
+	background-color: #e6ebff;
+	margin-top:20px;
+	margin-bottom:10px;
 	padding-top:15px;
 	padding-left:1%;
 	padding-right:2%;
 	padding-bottom:10px;
-	height:130px;	
-	width:90%;
-	background-color: #e6ebff;
-}
-
-#newPostContainer {
-	position:absolute;
+	border-radius:3px;
+	-webkit-box-shadow: 0px 0px 20px 3px rgba(25,106,138,0.65);
+	-moz-box-shadow: 0px 0px 20px 3px rgba(25,106,138,0.65);
+	box-shadow: 0px 0px 20px 3px rgba(25,106,138,0.65);
 }
 
 #inputContainer {
@@ -80,14 +84,14 @@ body {
 #imgIcon {
 	display:inline-block;
 	position:relative;
-	top:2px;
+	top:3px;
 	left:3%;
 	height:100%;
 }
 
 #postBtn {
 	background-color: #ccd6ff;
-	
+	border-radius:3px;
 	position:absolute;
 	right:10px;
 	bottom:10px;
@@ -102,8 +106,10 @@ body {
 }
 
 .postHeader {
+	position:relative;
+	
 	width:100%;
-	height:25%;
+	height:24%;
 }
 
 .imgHolder {
@@ -111,8 +117,8 @@ body {
 	display:inline-block;
 	height:100%;
 	top:30%;
-	left:2%;
-	width:6%;
+	left:15px;
+	width:7.5%;
 		
 }
 
@@ -126,4 +132,10 @@ body {
 	display:inline;
 	position:relative;
 	left:4%;
+}
+
+.postMid {
+	position:relative;
+	height:40%;
+	border: 1px solid red;
 }

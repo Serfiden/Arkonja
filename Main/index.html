@@ -15,14 +15,19 @@
 	<script src = "jquery.js"></script>
 	<script type="text/javascript" src = "script.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
-<body>
+<body class = "w3-light-gray">
 
 <div id = "mainContainer">
+
+	<div style = "position: absolute;">
+		<button id = "clearFeed"> CLEAR NEWS FEED </button>
+	</div>
+
+	<div id = "newsFeedContainer" class = "w3-light-gray">
 	
-	<div id = "newsFeedContainer">
-	
-		<div class = "overlap" id = "newPostContainer">
+		<div class = "w3-cyan" id = "newPostContainer">
 
 			<div id = "inputContainer">
 			
@@ -35,11 +40,11 @@
 			<img src="imgIconPost.png" id ='imgIcon'>
 			<!-- gonna insert some input options here -->
 			</div>
-			<button id = "postBtn">Post</button>
+			<button id = "postBtn" class = "w3-light-gray w3-hover-khaki">Post</button>
 		
 		</div>
-		<div class = "overlap" id ="placePost"></div>
-		<div class = "posts" id = "test">
+		<!-- <div class = "overlap w3-cyan" id ="placePost"></div> -->
+		<div class = "posts w3-cyan" id = "test">
 			<div class = "postHeader">
 				<div class = "imgHolder">
 					<img class = "profilePicPost" src="placeholder.png">
@@ -48,10 +53,14 @@
 				Serfiden
 				</p>
 			</div>
-			<div>
+
+			<hr style = "position:relative; top:4px; margin-left:20px; margin-right:20px">
+			
+			<div class = "postMid">
 				
 
 			</div>
+			
 			<div class = "postFooter">
 				
 

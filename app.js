@@ -134,7 +134,7 @@ app.get('/sessionbro', function(req, res){
 
 app.post('/newPost', function(req, res){
 	var insertString = "('" + req.body.username + "', '" + req.body.postingDate+ "', '" + req.body.message + "')";
-	var queryString = "INSERT INTO newsfeed (username, data, msg) VALUES " + insertString;
+	var queryString = "INSERT INTO arkonjafeed (username, data, msg) VALUES " + insertString;
 	conn.query(queryString, function(err, results){
 		if(err) throw err;
 		console.log(results);
@@ -143,18 +143,20 @@ app.post('/newPost', function(req, res){
 });
 
 app.get('/loadNewsFeed', function(req, res){
-	// 	NOT TESTED var resultsObj = {};
-	conn.query('SELECT * FROM newsfeed ORDER BY id DESC', function(err, results){
+	conn.query('SELECT * FROM arkonjafeed ORDER BY id DESC', function(err, results){
 		if(err) throw err;
-	// NOT TESTED	resultsObj.results = results;
 		res.send(results);
 	});
-	// NOT TESTED
-	/*conn.query("", function(err, results){
+});
+
+app.get('/clearNewsFeed', function(req, res){
+	conn.query('DELETE FROM arkonjafeed', function(err, results1){
 		if(err) throw err;
-		resultsObj.lastId = results;
-		res.send(resultsObj);
-	});*/
+		conn.query("ALTER TABLE 'arkonjafeed' AUTO_INCREMENT =1", function(err2, results2){
+			console.log("News feed successfully cleared!");
+			res.send(results2);
+		});
+	});
 });
 
 //////////////////////////////////

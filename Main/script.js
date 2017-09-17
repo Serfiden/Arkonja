@@ -39,10 +39,10 @@ function refreshFeed(reqName, feed){
 		for(var i = 0; i < (posts.length / 19); i ++)
 		{
 			if(i == 0)
-			$(feed).add("<div class = 'posts'><p>" + posts[5] + " wrote: " + decodeText(separateChars(posts[18])) + 
+			$(feed).add("<div class = 'posts w3-cyan'><p>" + posts[5] + " wrote: " + decodeText(separateChars(posts[18])) + 
 				" at " + posts[9] + "</p></div>").appendTo(feed);
 			else
-			$(feed).add("<div class = 'posts'><p>" + posts[18 * i + 5] + " wrote: " + decodeText(separateChars(posts[i * 18 + 18])) + 
+			$(feed).add("<div class = 'posts w3-cyan'><p>" + posts[18 * i + 5] + " wrote: " + decodeText(separateChars(posts[i * 18 + 18])) + 
 				" at " + posts[i * 18 + 9] + "</p></div>").appendTo(feed); 
 		}
 	});
@@ -93,14 +93,21 @@ $(document).ready(function(){
 			var i = countDivs('.posts');
 
 			if(i != 0)	
-				$('#placePost + .posts').before($('<div class= "posts" ><p>' + user + ' wrote: ' + postText + ' at ' + date + '</p></div>'));
+				$('#newPostContainer + .posts').before($('<div class= "posts w3-cyan" ><p>' + user + ' wrote: ' + postText + ' at ' + date + '</p></div>'));
 			else 
-				$('#newsFeedContainer').add("<div class = 'posts'><p>" + user + " wrote: " + postText + 
+				$('#newsFeedContainer').add("<div class = 'posts w3-cyan'><p>" + user + " wrote: " + postText + 
 				" at " + date + "</p></div>").appendTo('#newsFeedContainer'); 
 		}
 		document.getElementById('inputBox').value = '';
 	});
 	
+	$('#clearFeed').click(function(){
+		$.get('/clearNewsFeed', function(data){
+			console.log('sal');
+			location.reload();
+			return;
+		});
+	});
 
 
 
