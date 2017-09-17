@@ -116,6 +116,10 @@ app.get('/script.js', function(req, res){
 	res.sendFile(__dirname + '/Main/script.js');
 });
 
+app.get('/placePosts.js', function(req, res){
+	res.sendFile(__dirname + '/Main/placePosts.js');
+});
+
 app.get('/textIconPost.png', function(req, res){
 	res.sendFile(__dirname + '/Imgs/textIconPost.png');
 });
