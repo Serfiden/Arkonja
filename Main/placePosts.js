@@ -1,4 +1,7 @@
-$('#postBtn').click(function(){
+$(document).ready(function(){
+	var postTemplate = $('#test').html();
+
+	$('#postBtn').click(function(){
 		var d = new Date();
 
 		var newHour = d.getHours();
@@ -23,11 +26,17 @@ $('#postBtn').click(function(){
 
 			var i = countDivs('.posts');
 
+			var newDiv = postTemplate.replace("usernamePlaceholder", user).replace("textPlaceholder", postText);
+			newDiv = "<div class = 'posts w3-light-blue'>" + newDiv;
+			newDiv = newDiv + "</div>"; 	
+			console.log(newDiv);
+
+
 			if(i != 0)	
-				$('#newPostContainer + .posts').before($('<div class= "posts w3-cyan" ><p>' + user + ' wrote: ' + postText + ' at ' + date + '</p></div>'));
+				$('#newPostContainer + .posts').before($(newDiv));
 			else 
-				$('#newsFeedContainer').add("<div class = 'posts w3-cyan'><p>" + user + " wrote: " + postText + 
-				" at " + date + "</p></div>").appendTo('#newsFeedContainer'); 
+				$('#newsFeedContainer').add(newDiv).appendTo('#newsFeedContainer'); 
 		}
 		document.getElementById('inputBox').value = '';
 	});
+});

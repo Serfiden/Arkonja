@@ -23,24 +23,20 @@ function separateChars(arg){
 	}
 	var finalArgs = tempString.split(",");
 	return finalArgs;
-}
+};
 
-function refreshFeed(reqName, feed){
-	$.get(reqName, function(data){
+function refreshFeed(template){
+	$.get('/loadNewsFeed', function(data){
 		var str = JSON.stringify(data);
-		var posts = str.split("\"");
-		console.log(posts);
-		for(var i = 0; i < (posts.length / 19); i ++)
-		{
-			if(i == 0)
-			$(feed).add("<div class = 'posts w3-cyan'><p>" + posts[5] + " wrote: " + decodeText(separateChars(posts[18])) + 
-				" at " + posts[9] + "</p></div>").appendTo(feed);
-			else
-			$(feed).add("<div class = 'posts w3-cyan'><p>" + posts[18 * i + 5] + " wrote: " + decodeText(separateChars(posts[i * 18 + 18])) + 
-				" at " + posts[i * 18 + 9] + "</p></div>").appendTo(feed); 
+		var posts = str.split("\"");		
+		for(var i = 0; i < (posts.length / 19); i ++){
+				var txt = decodeText(separateChars(posts[18 * i + 18]));
+				var newDiv = template.replace("usernamePlaceholder", posts[18 * i + 5]).replace("textPlaceholder", txt);
+				newDiv = "<div class = 'posts w3-light-blue'>" + newDiv + "</div>";
+				$('#newsFeedContainer').add(newDiv).appendTo('#newsFeedContainer');
 		}
 	});
-}
+};
 
 function countDivs(identifier)
 {
@@ -49,21 +45,24 @@ function countDivs(identifier)
 		i ++;
 	});
 	return i;
-}
+};
 
-$('#clearFeed').click(function(){
-	$.get('/clearNewsFeed', function(data){
-		console.log('sal');
-		location.reload();
-		return;
-	});
-});
+
 
 $(document).ready(function(){
+
+	var postTemplate = $('#test').html();
+	refreshFeed(postTemplate);
 	$.get('/sessionbro', function(data){
 		user = JSON.stringify(data);
 		var str = user.split("\"");
 		user = str[1];
 	});
-	refreshFeed('/loadNewsFeed', '#newsFeedContainer');
+	$('#clearFeed').click(function(){
+		$.get('/clearNewsFeed', function(data){
+			console.log('sal');
+			location.reload();
+			return;
+		});
+	});
 });

@@ -112,6 +112,14 @@ app.get('/style.css', function(req, res){
 	res.sendFile(__dirname + '/Main/style.css');
 });
 
+app.get('/newsfeedStyle.css', function(req, res){
+	res.sendFile(__dirname + '/Main/newsfeedStyle.css');
+});
+
+app.get('/profileStyle.css', function(req, res){
+	res.sendFile(__dirname + '/Main/profileStyle.css');
+});
+
 app.get('/script.js', function(req, res){
 	res.sendFile(__dirname + '/Main/script.js');
 });

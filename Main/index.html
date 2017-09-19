@@ -1,74 +1,64 @@
-<!-- 
-	- update the style for posts made by users
-	- handle the post overflow (the only non-fixed element should be the actual feed itself)
-	- user settings panel (initial: change password, choose profil pic, perhaps birthday for a possible event panel?)
-	
- -->
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset='utf-8'>
-	<title>P A C H O I A N O</title>
+	<title>A R K O N J A</title>
 	<script src = "jquery.js"></script>
 	<script type="text/javascript" src = "script.js"></script>
 	<script type="text/javascript" src = "placePosts.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="newsfeedStyle.css">
+	<link rel="stylesheet" type="text/css" href="profileStyle.css">
 	<link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body class = "w3-light-gray">
 
-<div id = "mainContainer">
+<div id = "mainContainer" class = "w3-container w3-padding-16">
 
-	<div style = "position: absolute;">
-		<button id = "clearFeed"> CLEAR NEWS FEED </button>
+	<div class = "w3-container w3-light-blue w3-padding" id = "profileContainer">
+		<div class = "w3-display-bottomright w3-padding-small">
+			<button id = "clearFeed"> CLEAR NEWS FEED </button>
+		</div>
+		<div class = "w3-container w3-display-topleft" id = "profilePicContainer">
+			<img class = "w3-circle" id = "profilePic" src = "placeholder.png">
+		</div>
 	</div>
-
+	
 	<div id = "newsFeedContainer" class = "w3-light-gray">
 	
-		<div class = "w3-cyan" id = "newPostContainer">
-
+		<div class = "w3-light-blue" id = "newPostContainer">
 			<div id = "inputContainer">
-			
-			<span><input type="text" placeholder="Write your thoughts here..." id = "inputBox" maxlength = "300"></span> 
-
+				<input type="text" placeholder="Write your thoughts here..." id = "inputBox" maxlength = "300">
 			</div>
-		
 			<div id = "inputOpts" >
-			<img src="textIconPost.png" id = 'txtIcon'>
-			<img src="imgIconPost.png" id ='imgIcon'>
+				<img src="textIconPost.png" id = 'txtIcon'>
+				<img src="imgIconPost.png" id ='imgIcon'>
 			<!-- gonna insert some input options here -->
 			</div>
 			<button id = "postBtn" class = "w3-light-gray w3-hover-khaki">Post</button>
-		
 		</div>
-		<!-- <div class = "overlap w3-cyan" id ="placePost"></div> -->
-		<div class = "posts w3-cyan" id = "test">
+
+		<div class = "posts w3-light-blue w3-animate-bottom" id = "test" style = "display:none">
 			<div class = "postHeader">
 				<div class = "imgHolder">
-					<img class = "profilePicPost" src="placeholder.png">
+					<img class = "w3-circle profilePicPost" src="placeholder.png">
 				</div>
 				<p id = "usernameDisplay"> 
-				Serfiden
+				usernamePlaceholder
 				</p>
 			</div>
-
-			<hr style = "position:relative; top:4px; margin-left:20px; margin-right:20px">
-			
+			<hr style = "position:relative; margin-left:16px; margin-right:16px">
 			<div class = "postMid">
-				Salut				
-
-			</div>
-			
+				textPlaceholder
+			</div>			
+			<hr style = "position:relative; margin-left:16px; margin-right:16px;">
 			<div class = "postFooter">
-				
-
 			</div>
 		</div>
 				
 	</div>
+
+
 </div>
 
 </body>
