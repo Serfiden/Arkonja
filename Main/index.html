@@ -10,32 +10,36 @@
 	<link rel="stylesheet" type="text/css" href="newsfeedStyle.css">
 	<link rel="stylesheet" type="text/css" href="profileStyle.css">
 	<link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class = "w3-light-gray">
 
 <div id = "mainContainer" class = "w3-container w3-padding-16">
 
-	<div class = "w3-container w3-light-blue w3-padding" id = "profileContainer">
+	<div class = "w3-container w3-light-blue" id = "profileContainer">
+		<h3 class = "w3-center">Username</h3>
+		<div class = "w3-center" id = "profilePicContainer">
+			<img class = "w3-circle" id = "profilePic" src = "placeholder.png">
+		</div>
+		<hr class = "w3-cyan">
 		<div class = "w3-display-bottomright w3-padding-small">
 			<button id = "clearFeed"> CLEAR NEWS FEED </button>
 		</div>
-		<div class = "w3-container w3-display-topleft" id = "profilePicContainer">
-			<img class = "w3-circle" id = "profilePic" src = "placeholder.png">
-		</div>
 	</div>
+
 	
 	<div id = "newsFeedContainer" class = "w3-light-gray">
 	
 		<div class = "w3-light-blue" id = "newPostContainer">
 			<div id = "inputContainer">
-				<input type="text" placeholder="Write your thoughts here..." id = "inputBox" maxlength = "300">
+				<input type="text" placeholder="Write your thoughts here..." id = "inputBox" readonly>
 			</div>
 			<div id = "inputOpts" >
 				<img src="textIconPost.png" id = 'txtIcon'>
 				<img src="imgIconPost.png" id ='imgIcon'>
 			<!-- gonna insert some input options here -->
 			</div>
-			<button id = "postBtn" class = "w3-light-gray w3-hover-khaki">Post</button>
+			<button id = "postBtn" class = "w3-button w3-light-gray w3-hover-blue">Post</button>
 		</div>
 
 		<div class = "posts w3-light-blue w3-animate-bottom" id = "test" style = "display:none">
@@ -43,16 +47,19 @@
 				<div class = "imgHolder">
 					<img class = "w3-circle profilePicPost" src="placeholder.png">
 				</div>
-				<p id = "usernameDisplay"> 
-				usernamePlaceholder
-				</p>
+				<p id = "usernameDisplay">usernamePlaceholder</p>
 			</div>
 			<hr style = "position:relative; margin-left:16px; margin-right:16px">
 			<div class = "postMid">
-				textPlaceholder
+				<p id = "textDisplay">textPlaceholder</p>
 			</div>			
-			<hr style = "position:relative; margin-left:16px; margin-right:16px;">
 			<div class = "postFooter">
+				<p class = "w3-display-topright">datePlaceholder</p>
+				<button class = "w3-button w3-display-topleft w3-hover-blue w3-light-gray" id = "likeButton">
+					<i class = "fa fa-thumbs-up w3-center"></i>
+					Like
+				</button>
+				<p class = "w3-display-topleft" style = "position:relative; display:none;top:2px;left:4px" id = "likesNum">0 Likes</p> 
 			</div>
 		</div>
 				

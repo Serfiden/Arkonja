@@ -26,7 +26,7 @@ $(document).ready(function(){
 
 			var i = countDivs('.posts');
 
-			var newDiv = postTemplate.replace("usernamePlaceholder", user).replace("textPlaceholder", postText);
+			var newDiv = postTemplate.replace("usernamePlaceholder", user).replace("textPlaceholder", postText).replace("datePlaceholder", date);
 			newDiv = "<div class = 'posts w3-light-blue'>" + newDiv;
 			newDiv = newDiv + "</div>"; 	
 			console.log(newDiv);
@@ -38,5 +38,11 @@ $(document).ready(function(){
 				$('#newsFeedContainer').add(newDiv).appendTo('#newsFeedContainer'); 
 		}
 		document.getElementById('inputBox').value = '';
+	});
+
+
+	$('#likeButton').click(function(){
+		var likes = $('#likesNum').text();
+		 
 	});
 });

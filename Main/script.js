@@ -30,10 +30,13 @@ function refreshFeed(template){
 		var str = JSON.stringify(data);
 		var posts = str.split("\"");		
 		for(var i = 0; i < (posts.length / 19); i ++){
-				var txt = decodeText(separateChars(posts[18 * i + 18]));
-				var newDiv = template.replace("usernamePlaceholder", posts[18 * i + 5]).replace("textPlaceholder", txt);
+
+				var txt = decodeText(separateChars(posts[21 * i + 18]));
+				var date = posts[21 * i + 9];
+				var newDiv = template.replace("usernamePlaceholder", posts[21 * i + 5]).replace("textPlaceholder", txt).replace("datePlaceholder", date);
 				newDiv = "<div class = 'posts w3-light-blue'>" + newDiv + "</div>";
 				$('#newsFeedContainer').add(newDiv).appendTo('#newsFeedContainer');
+
 		}
 	});
 };
@@ -64,5 +67,16 @@ $(document).ready(function(){
 			location.reload();
 			return;
 		});
+	});
+
+
+	$( '#inputBox' ).on( 'click', function() {
+   		$( this ).prop( 'readonly', '' );
+   	 	$( this ).focus();
+	});
+ 
+	// making the input readonly
+	$( '#inputBox' ).on( 'blur', function() {
+    	$( this ).prop( 'readonly', 'readonly' );
 	});
 });

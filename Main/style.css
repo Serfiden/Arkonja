@@ -4,15 +4,3 @@
 	position:absolute;
 	font-family: Verdana, sans-serif;
 }
-
-#profilePicContainer {
-	position:relative;
-	left:-10px;
-	width:100px;
-	height:80px;	
-}
-
-#profilePic {
-	width:100%;
-	height:100%;
-}
