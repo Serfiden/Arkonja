@@ -40,9 +40,4 @@ $(document).ready(function(){
 		document.getElementById('inputBox').value = '';
 	});
 
-
-	$('#likeButton').click(function(){
-		var likes = $('#likesNum').text();
-		 
-	});
 });

@@ -30,10 +30,9 @@ function refreshFeed(template){
 		var str = JSON.stringify(data);
 		var posts = str.split("\"");		
 		for(var i = 0; i < (posts.length / 19); i ++){
-
-				var txt = decodeText(separateChars(posts[21 * i + 18]));
-				var date = posts[21 * i + 9];
-				var newDiv = template.replace("usernamePlaceholder", posts[21 * i + 5]).replace("textPlaceholder", txt).replace("datePlaceholder", date);
+				var txt = decodeText(separateChars(posts[20 * i + 18]));
+				var date = posts[20 * i + 9];
+				var newDiv = template.replace("usernamePlaceholder", posts[20 * i + 5]).replace("textPlaceholder", txt).replace("datePlaceholder", date);
 				newDiv = "<div class = 'posts w3-light-blue'>" + newDiv + "</div>";
 				$('#newsFeedContainer').add(newDiv).appendTo('#newsFeedContainer');
 
@@ -51,6 +50,15 @@ function countDivs(identifier)
 };
 
 
+function moarLikes(){
+	var str = $(document.getElementById('likeButton')).parent().children("#likesNum").text();
+	var likes = str.slice(12, str.length);
+	likes ++;
+	var final = "Post score: " + likes;
+	console.log(final);
+	$(document.getElementById('likeButton').nextSibling).empty();
+	$(document.getElementById('likeButton').nextSibling).append('' + final);
+}
 
 $(document).ready(function(){
 
@@ -67,16 +75,5 @@ $(document).ready(function(){
 			location.reload();
 			return;
 		});
-	});
-
-
-	$( '#inputBox' ).on( 'click', function() {
-   		$( this ).prop( 'readonly', '' );
-   	 	$( this ).focus();
-	});
- 
-	// making the input readonly
-	$( '#inputBox' ).on( 'blur', function() {
-    	$( this ).prop( 'readonly', 'readonly' );
 	});
 });

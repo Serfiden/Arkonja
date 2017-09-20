@@ -29,10 +29,10 @@
 
 	
 	<div id = "newsFeedContainer" class = "w3-light-gray">
-	
+		<p id = "postIndexer" style = "display:none"></p>
 		<div class = "w3-light-blue" id = "newPostContainer">
 			<div id = "inputContainer">
-				<input type="text" placeholder="Write your thoughts here..." id = "inputBox" readonly>
+				<input type="text" placeholder="Write your thoughts here..." id = "inputBox">
 			</div>
 			<div id = "inputOpts" >
 				<img src="textIconPost.png" id = 'txtIcon'>
@@ -55,11 +55,12 @@
 			</div>			
 			<div class = "postFooter">
 				<p class = "w3-display-topright">datePlaceholder</p>
-				<button class = "w3-button w3-display-topleft w3-hover-blue w3-light-gray" id = "likeButton">
+				<button class = "w3-button w3-display-topleft w3-hover-blue w3-light-gray" id = "likeButton" onclick = "moarLikes()">
 					<i class = "fa fa-thumbs-up w3-center"></i>
-					Like
+					<p style = "display:inline">Like</p>
+					
 				</button>
-				<p class = "w3-display-topleft" style = "position:relative; display:none;top:2px;left:4px" id = "likesNum">0 Likes</p> 
+				<p class = "w3-display-topleft" style = "position:relative; display:inline;top:2px;left:4px" id = "likesNum">Post score: 0</p> 
 			</div>
 		</div>
 				
