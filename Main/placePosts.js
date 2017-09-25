@@ -1,3 +1,37 @@
+function moarLikes(elem){
+	var str = $(elem).parent().children(".likesNum").text();
+	var likes = str.slice(12, str.length);
+	var dataId = $(elem).parent().children('#dateContainer').text();
+	if($(elem).children('p').text() == 'Like'){
+		likes ++;
+		var final = "Post score: " + likes;
+		$(elem).parent().children('#postScore').css('display', 'inline');
+		$(elem).parent().children('.likesNum').empty();
+		$(elem).parent().children('.likesNum').append('' + final);
+		$(elem).children('p').text('Dislike');
+		$(elem).children('i').removeClass('fa fa-thumbs-up');
+		$(elem).children('i').addClass('fa fa-thumbs-down');
+		$(elem).css('width', '100');
+		$.get('/increaseLikesNum/' + dataId, function(data){
+		});
+	}
+	else {
+		likes --;
+		var final = "Post score: " + likes;
+		if(likes == 0)
+			$(elem).parent().children("#postScore").css('display', 'none');
+		$(elem).parent().children('.likesNum').empty();
+		$(elem).parent().children('.likesNum').append('' + final);
+		$(elem).children('i').removeClass('fa fa-thumbs-down');
+		$(elem).children('i').addClass('fa fa-thumbs-up');
+		$(elem).children('p').text('Like');
+		$(elem).css('width', '80');
+		$.get('/decreaseLikesNum/' + dataId, function(data){
+		});
+	}
+	
+}
+
 $(document).ready(function(){
 	var postTemplate = $('#test').html();
 
@@ -29,8 +63,6 @@ $(document).ready(function(){
 			var newDiv = postTemplate.replace("usernamePlaceholder", user).replace("textPlaceholder", postText).replace("datePlaceholder", date);
 			newDiv = "<div class = 'posts w3-light-blue'>" + newDiv;
 			newDiv = newDiv + "</div>"; 	
-			console.log(newDiv);
-
 
 			if(i != 0)	
 				$('#newPostContainer + .posts').before($(newDiv));

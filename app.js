@@ -105,7 +105,9 @@ app.get('/recover.css', function(req, res){
 ///////////////
 
 app.get('/index.html', function(req, res){
-	res.sendFile(__dirname + '/Main/index.html');
+	if(sessionUser != "")
+		res.sendFile(__dirname + '/Main/index.html');
+	else res.sendFile(__dirname + '/Login/login.html');
 });
 
 app.get('/style.css', function(req, res){
@@ -126,6 +128,10 @@ app.get('/script.js', function(req, res){
 
 app.get('/placePosts.js', function(req, res){
 	res.sendFile(__dirname + '/Main/placePosts.js');
+});
+
+app.get('/newsFeedLoad.js', function(req, res){
+	res.sendFile(__dirname + '/Main/newsFeedLoad.js');
 });
 
 app.get('/textIconPost.png', function(req, res){
@@ -171,6 +177,22 @@ app.get('/clearNewsFeed', function(req, res){
 	});
 });
 
+app.get('/increaseLikesNum/:id', function(req, res){
+	conn.query('UPDATE arkonjafeed SET likes = likes + 1 WHERE data = ?', req.params.id, function(err, results){
+		if(err) throw err;
+		console.log(results);
+		res.end();
+	});
+});
+
+app.get('/decreaseLikesNum/:id', function(req, res){
+	conn.query('UPDATE arkonjafeed SET likes = likes - 1 WHERE data = ?', req.params.id, function(err, results){
+		if(err) throw err;
+		console.log(results);
+		res.end();
+	});
+});
+
 //////////////////////////////////
 
 app.get('/register.html', function(req, res){
@@ -179,6 +201,5 @@ app.get('/register.html', function(req, res){
 
 
 // 
-
 
 

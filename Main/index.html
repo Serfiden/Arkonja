@@ -6,6 +6,7 @@
 	<script src = "jquery.js"></script>
 	<script type="text/javascript" src = "script.js"></script>
 	<script type="text/javascript" src = "placePosts.js"></script>
+	<script type="text/javascript" src = "newsFeedLoad.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" type="text/css" href="newsfeedStyle.css">
 	<link rel="stylesheet" type="text/css" href="profileStyle.css">
@@ -21,10 +22,24 @@
 		<div class = "w3-center" id = "profilePicContainer">
 			<img class = "w3-circle" id = "profilePic" src = "placeholder.png">
 		</div>
-		<hr class = "w3-cyan">
-		<div class = "w3-display-bottomright w3-padding-small">
-			<button id = "clearFeed"> CLEAR NEWS FEED </button>
+		<hr class = "w3-black">
+		<div class = "w3-display-topright w3-center" id = "cogContainer">
+				<i class = "fa fa-cog fa-2x fa-fw" id = "cog"></i>
 		</div>
+		<ul id = "profileDetails">
+			<li>
+				<i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
+				<p class = "userDetails"><input class = "w3-input w3-light-blue editInputs" type="text" id = "editName"></input></p>
+			</li>
+			<li>
+				<i class="fa fa-birthday-cake fa-2x" aria-hidden="true"></i>
+				<p class = "userDetails">birthdayPlace</p>
+			</li>
+			<li>
+				<i class="fa fa-map-marker fa-2x" aria-hidden="true" style = "position:relative;left:6px;"></i>
+				<p class = "userDetails">locationPlace</p>
+			</li>
+		</ul>
 	</div>
 
 	
@@ -54,16 +69,14 @@
 				<p id = "textDisplay">textPlaceholder</p>
 			</div>			
 			<div class = "postFooter">
-				<p class = "w3-display-topright">datePlaceholder</p>
-				<button class = "w3-button w3-display-topleft w3-hover-blue w3-light-gray" id = "likeButton" onclick = "moarLikes()">
+				<p style = "position:absolute" id = "dateContainer">datePlaceholder</p>
+				<button class = "w3-button w3-display-topleft w3-hover-blue w3-light-gray" id = "likeButton" onclick = "moarLikes(this)">
 					<i class = "fa fa-thumbs-up w3-center"></i>
 					<p style = "display:inline">Like</p>
-					
 				</button>
-				<p class = "w3-display-topleft" style = "position:relative; display:inline;top:2px;left:4px" id = "likesNum">Post score: 0</p> 
+				<p class = "likesNum w3-display-topleft" id ="postScore" style = "position:relative; display:none;top:2px;left:4px">Post score: 0</p> 
 			</div>
-		</div>
-				
+		</div>		
 	</div>
 
 

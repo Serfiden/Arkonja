@@ -17,3 +17,41 @@
 	width:70px;
 	height:100%;
 }
+
+#cogContainer {
+	position:absolute;
+	top:16px;
+	right:8px;
+}
+
+#profileDetails {
+	list-style-type: none;
+	position:relative;
+	top:-5px;
+	left:-40px;	
+}
+
+li {
+	width:113%;
+	position:relative;
+	margin-bottom:10px;
+}
+
+.userDetails {
+	display:inline;
+	position:absolute;
+	left:50px;
+	bottom:-11px;
+}
+
+.editProfileDetails {
+	position:absolute;
+	z-index:2;
+	right:0px;
+}
+
+.editInputs{
+	position:relative;
+	top:7px;
+	left:-9px;
+}
